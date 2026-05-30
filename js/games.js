@@ -4,10 +4,11 @@
 
 const gamesRegistry = [
   {
-    id: "basket.bros-game",
-    name: "Basket Bros",
-    image: "https://kevin.games/assets/images/new/basketbros-io.jpg", //
-    url: "basketbros.io"
+    id: "sample-game",
+    name: "Sample Game",
+    icon: "🕹️",
+    image: "https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?auto=format&fit=crop&w=600&q=80", 
+    url: "about:blank"
   }
 ];
 
@@ -15,19 +16,25 @@ const appsRegistry = [
   {
     id: "youtube-app",
     name: "YouTube",
-    image: "https://www.iconsdb.com/icons/preview/color/FF0303/youtube-xxl.png", // 
-    url: "https://www.youtube.com/embed/"
+    icon: "📺",
+    // Premium dark crimson abstract studio image
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80", 
+    url: "https://yewtu.be" 
   },
   {
     id: "tiktok-app",
     name: "TikTok",
-    image: "https://www.iconsdb.com/icons/preview/black/tiktok-xxl.png", // 
-    url: "about:blank"
+    icon: "🎵",
+    // Neon dark cyan/magenta structural background
+    image: "https://images.unsplash.com/photo-1598128558393-70ff21433be0?auto=format&fit=crop&w=600&q=80", 
+    url: "https://proxitok.pabloferreiro.xyz" 
   },
   {
-    id: "x-app",
-    name: "X",
-    image: "https://images.unsplash.com/photo-1690138871287-02b2fc3b87c2?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // 
-    url: "x.com/home"
+    id: "twitter-app",
+    name: "Twitter / X",
+    icon: "🌐",
+    // Premium charcoal geometric tech waves background
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80", 
+    url: "https://nitter.cz" 
   }
 ];
