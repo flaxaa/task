@@ -206,3 +206,8 @@
   z-index: 1;
   transition: transform 0.08s ease-out;
 }
+
+/* Append this at the very bottom of your components.css file */
+.browser-container {
+  display: none; /* Syncs framework logic pipeline layout view default states */
+}
