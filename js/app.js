@@ -1,11 +1,10 @@
-/* ==========================================================================
-   CORE WORKSPACE ROUTER ENGINE
-   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   const navButtons = document.querySelectorAll(".nav-pill");
   const viewPanels = document.querySelectorAll(".view-panel");
   
+  const gamesGrid = document.getElementById("main-games-grid");
   const appsGrid = document.getElementById("main-apps-grid");
+  const appsPageHeader = document.getElementById("apps-page-header");
   const browserFrame = document.getElementById("app-browser-frame");
   const appIframe = document.getElementById("app-iframe");
   const browserUrlText = document.getElementById("browser-url-text");
@@ -13,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBrowserBtn = document.getElementById("browser-close");
   const refreshBrowserBtn = document.getElementById("browser-refresh");
 
-  // 1. View Switching Router Handler
+  // 1. Navigation Panel Routing Logic Engine
   navButtons.forEach(button => {
     button.addEventListener("click", () => {
       const targetViewId = button.getAttribute("data-target");
@@ -29,45 +28,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 2. Generate Application Selection Cards Dynamically (With Image Overlays)
-  if (appsGrid && typeof appsRegistry !== 'undefined') {
-    appsGrid.innerHTML = ""; // Clear out old placeholders
+  // Helper function to build cards with premium dark gradient lenses
+  function buildDynamicCards(registryArray, targetGridElement, isAppBrowser = false) {
+    if (!targetGridElement || typeof registryArray === 'undefined') return;
+    targetGridElement.innerHTML = "";
     
-    appsRegistry.forEach(app => {
+    registryArray.forEach(item => {
       const card = document.createElement("div");
       card.className = "game-card-placeholder";
       
-      // If an image link is found in games.js, apply it with a dark lens filter gradient
-      if (app.image && app.image.trim() !== "") {
-        card.style.backgroundImage = `linear-gradient(to bottom, rgba(20, 20, 20, 0.4), rgba(10, 10, 10, 0.85)), url('${app.image}')`;
+      if (item.image && item.image.trim() !== "") {
+        card.style.backgroundImage = `linear-gradient(to bottom, rgba(15, 15, 15, 0.15), rgba(10, 10, 10, 0.9)), url('${item.image}')`;
         card.style.backgroundSize = "cover";
         card.style.backgroundPosition = "center";
       }
       
       card.innerHTML = `
-        <div class="card-icon">${app.icon}</div>
-        <h3>${app.name}</h3>
-        <p>Launch official mirror workspace.</p>
+        <div class="card-icon">${item.icon}</div>
+        <h3>${item.name}</h3>
+        <p>${isAppBrowser ? 'Launch web workspace panel.' : 'Launch instant game frame.'}</p>
       `;
       
-      // Wire up launch routing action
       card.addEventListener("click", () => {
-        browserUrlText.textContent = `secure://hub-internal-sandbox/${app.id}`;
-        appIframe.src = app.url;
-        appsGrid.style.display = "none";
-        browserFrame.style.display = "flex";
+        if (isAppBrowser) {
+          browserUrlText.textContent = `secure://hub-internal-sandbox/${item.id}`;
+          appIframe.src = item.url;
+          appsGrid.style.display = "none";
+          appsPageHeader.style.display = "none";
+          browserFrame.style.display = "flex";
+        } else {
+          // Future Game activation loop hook logic area
+          alert(`Loading ${item.name}...`);
+        }
       });
 
-      appsGrid.appendChild(card);
+      targetGridElement.appendChild(card);
     });
   }
 
-  // 3. Browser Utility Header Tool Hooks
+  // 2. Initialize and Render Grid Elements
+  buildDynamicCards(gamesRegistry, gamesGrid, false);
+  buildDynamicCards(appsRegistry, appsGrid, true);
+
+  // 3. Browser Iframe Container Operations Controller
   if (closeBrowserBtn) {
     closeBrowserBtn.addEventListener("click", () => {
-      appIframe.src = "about:blank"; // Force clean page uncache wipe
+      appIframe.src = "about:blank";
       browserFrame.style.display = "none";
       if (appsGrid) appsGrid.style.display = "grid";
+      if (appsPageHeader) appsPageHeader.style.display = "block";
     });
   }
 
@@ -79,9 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ==========================================================================
-     LIGHTWEIGHT MOUSE TRACKER FOR GHOST CURSOR AURA
-     ========================================================================== */
+  // 4. Cursor Follow Aura Tracking Engine
   const aura = document.getElementById("cursor-aura");
   if (aura) {
     document.addEventListener("mousemove", (e) => {
