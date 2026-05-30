@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
 
+  <canvas id="bg-weather-canvas"></canvas>
+
+  <div id="cursor-aura"></div>
+
+  <div class="app-container">
+    
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>HUB</h2>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <button class="nav-pill active" data-target="games-view">
+          <span class="nav-icon">🎮</span> Games
+        </button>
+        <button class="nav-pill" data-target="apps-view">
+          <span class="nav-icon">📱</span> Apps
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div id="system-time-display">--:--:-- --</div>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      
+      <section id="games-view" class="view-panel active">
+        <div class="view-header">
+          <h1>Unblocked Games</h1>
+          <p>Select a title to begin playing instantly.</p>
+        </div>
+        <div class="games-grid" id="main-games-grid">
+          <div class="game-card-placeholder">
+            <div class="card-icon">🕹️</div>
+            <h3>Sample Game</h3>
+            <p>Layout testing block.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="apps-view" class="view-panel">
+        <div class="browser-container">
+          <div class="browser-header">
+            <button class="browser-btn" id="browser-back">←</button>
+            <button class="browser-btn" id="browser-refresh">↻</button>
+            <div class="browser-address-bar">
+              <span id="browser-url-text">Select an app from the sidebar...</span>
+            </div>
+          </div>
+          <div class="browser-viewport">
+            <iframe id="app-iframe" src="about:blank"></iframe>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/games.js"></script>
+  <script src="js/vfx.js"></script>
+  <script src="js/clock.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
