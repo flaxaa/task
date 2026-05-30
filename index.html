@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hub</title>
+  <title>FLAXAA HUB</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
 </head>
 <body>
 
@@ -33,7 +33,7 @@
       </nav>
 
       <div class="sidebar-footer">
-        <div id="system-time-display">--:--:-- --</div>
+        <div id="system-time-display">00:00:00 PM</div>
       </div>
     </aside>
 
@@ -45,21 +45,24 @@
           <p>Play games</p>
         </div>
         <div class="games-grid" id="main-games-grid">
-          <div class="game-card-placeholder">
-            <div class="card-icon">🕹️</div>
-            <h3>Sample Game</h3>
-            <p>Layout testing block.</p>
           </div>
-        </div>
       </section>
 
       <section id="apps-view" class="view-panel">
-        <div class="browser-container">
+        <div class="view-header" id="apps-page-header">
+          <h1>Web Applications</h1>
+          <p>Launch official mirror pipelines seamlessly inside the workspace environment.</p>
+        </div>
+
+        <div class="games-grid" id="main-apps-grid">
+          </div>
+
+        <div class="browser-container" id="app-browser-frame">
           <div class="browser-header">
-            <button class="browser-btn" id="browser-back">←</button>
-            <button class="browser-btn" id="browser-refresh">↻</button>
+            <button class="browser-btn" id="browser-close">✕ Close App</button>
+            <button class="browser-btn" id="browser-refresh">↻ Refresh</button>
             <div class="browser-address-bar">
-              <span id="browser-url-text">Select an app from the sidebar...</span>
+              <span id="browser-url-text">secure://hub-internal-sandbox/</span>
             </div>
           </div>
           <div class="browser-viewport">
@@ -71,9 +74,9 @@
     </main>
   </div>
 
-  <script src="js/games.js"></script>
-  <script src="js/vfx.js"></script>
-  <script src="js/clock.js"></script>
-  <script src="js/app.js"></script>
+  <script src="./js/games.js"></script>
+  <script src="./js/vfx.js"></script>
+  <script src="./js/clock.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 </html>
