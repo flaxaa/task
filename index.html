@@ -3,19 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FLAXAA HUB</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="./css/components.css">
-  <link rel="icon" type="image/png" href="FLAXAA1.png">
+  <title>FLAXAA Hub</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <canvas id="bg-weather-canvas"></canvas>
-
   <div id="cursor-aura"></div>
+  <canvas id="bg-weather-canvas"></canvas>
 
   <div class="app-container">
     
@@ -25,41 +21,75 @@
       </div>
       
       <nav class="sidebar-nav">
-        <button class="nav-pill active" data-target="games-view">
-          <span class="nav-icon">🎮</span> Games
+        <button class="nav-pill active" data-target="view-creator">
+          <span class="nav-icon">🛠️</span> App Factory
         </button>
-        <button class="nav-pill" data-target="apps-view">
-          <span class="nav-icon">📱</span> Apps
+        <button class="nav-pill" data-target="view-games">
+          <span class="nav-icon">🎮</span> System Games
         </button>
+        <button class="nav-pill" data-target="view-apps">
+          <span class="nav-icon">🌐</span> Web Apps
+        </button>
+        
+        <div class="nav-separator">Custom Folders</div>
+        <div id="dynamic-user-tabs" class="sidebar-nav-sub">
+          </div>
       </nav>
 
       <div class="sidebar-footer">
-        <div id="system-time-display">00:00:00 PM</div>
+        <div id="system-time-display">00:00:00 AM</div>
       </div>
     </aside>
 
     <main class="workspace">
       
-      <section id="games-view" class="view-panel active">
+      <section id="view-creator" class="view-panel active">
         <div class="view-header">
-          <h1>Games</h1>
+          <h1>Application Creator</h1>
+          <p>Input custom configurations to build dynamic sandbox tabs on the fly.</p>
         </div>
-        <div class="games-grid" id="main-games-grid">
+        
+        <div class="creator-form-card">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="custom-app-name">Application Tab Name</label>
+              <input type="text" id="custom-app-name" placeholder="e.g., Note Space, Work logs...">
+            </div>
+            <div class="form-group-short">
+              <label for="custom-app-icon">Icon / Emoji</label>
+              <input type="text" id="custom-app-icon" placeholder="🚀" maxlength="4">
+            </div>
           </div>
+          
+          <div class="form-group">
+            <label for="custom-app-body">Display Content (Text Layout Area)</label>
+            <textarea id="custom-app-body" rows="8" placeholder="Type or paste text content you want this specific application panel to display..."></textarea>
+          </div>
+          
+          <button id="submit-custom-app-btn" class="action-submit-btn">Forge Dynamic Tab</button>
+        </div>
       </section>
 
-      <section id="apps-view" class="view-panel">
-        <div class="view-header" id="apps-page-header">
-          <h1>Apps</h1>
+      <section id="view-games" class="view-panel">
+        <div class="view-header">
+          <h1>System Games</h1>
+          <p>Launch instant sandbox game frame overlays.</p>
         </div>
+        <div id="main-games-grid" class="games-grid"></div>
+      </section>
 
-        <div class="games-grid" id="main-apps-grid">
-          </div>
+      <section id="view-apps" class="view-panel">
+        <div id="apps-page-header" class="view-header">
+          <h1>Web Apps</h1>
+          <p>Launch internal sandbox instances.</p>
+        </div>
+        
+        <div id="main-apps-grid" class="games-grid"></div>
 
-        <div class="browser-container" id="app-browser-frame">
+        <div id="app-browser-frame" class="browser-container">
           <div class="browser-header">
-            <button class="browser-btn" id="browser-close">✕ Close App</button>
-            <button class="browser-btn" id="browser-refresh">↻ Refresh</button>
+            <button id="browser-close" class="browser-btn">✕ Close</button>
+            <button id="browser-refresh" class="browser-btn">↻ Refresh</button>
             <div class="browser-address-bar">
               <span id="browser-url-text">secure://hub-internal-sandbox/</span>
             </div>
@@ -70,12 +100,23 @@
         </div>
       </section>
 
+      <section id="view-custom-display" class="view-panel">
+        <div class="view-header">
+          <h1 id="custom-display-title">Dynamic Tab</h1>
+          <p id="custom-display-subtitle">User-generated content module view</p>
+        </div>
+        <div class="custom-text-canvas-wrapper">
+          <div id="custom-display-content-body">
+            </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
-  <script src="./js/games.js"></script>
-  <script src="./js/vfx.js"></script>
-  <script src="./js/clock.js"></script>
-  <script src="./js/app.js"></script>
+  <script src="games.js"></script>
+  <script src="vfx.js"></script>
+  <script src="clock.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
